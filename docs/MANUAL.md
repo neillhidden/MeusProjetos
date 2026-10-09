@@ -45,7 +45,7 @@ Existe também uma branch `pages-archive`, com os ficheiros compilados das vers�
 Guarda apenas a central de escolha dos projetos:
 
 - `site/index.html`: página principal da central e os cartões dos projetos.
-- `site/bancada/index.html`: informação de que a Bancada ainda não tem versões.
+- `site/bancada/index.html` e `commits.js`: histórico automático dos commits públicos da Bancada, pesquisa, atualização e links para código/alterações.
 - `.github/workflows/deploy-pages.yml`: publicação automática da central.
 - `docs/MANUAL.md`: este manual.
 
@@ -218,7 +218,7 @@ Se a Bancada precisar de um servidor ou backend, o GitHub Pages não executa ess
 | Pages não está ativo | Em Settings → Pages, verifica Source = GitHub Actions e o workflow de publicação. |
 | Site abre mas falta CSS ou JavaScript | Confere a base/caminho de publicação. No MyOffice, o build Pages usa `/MyOffice/`; previews usam o caminho do commit. |
 | A versão antiga não tem botão para abrir | Pode não ter aplicação ou o build histórico pode ter falhado. Consulta o código pelo commit. |
-| A Bancada não abre um sistema | Ainda não há aplicação e catálogo publicados; o cartão é informativo. |
+| A Bancada não abre um sistema | O histórico mostra código/alterações. A loja tem servidor Node/SQLite e precisa de hospedagem própria para abrir como site. |
 | Perdi os dados depois de limpar o navegador | Dados locais não são commits nem backups. Não assumas que voltar o código recupera esses dados. |
 | Codex não pode enviar para um repositório novo | Verifica o acesso da integração nas instalações do GitHub. |
 | Quero mudar o título de uma versão futura | Escreve a mensagem pretendida ao fazer o commit. |
@@ -233,3 +233,9 @@ Se a Bancada precisar de um servidor ou backend, o GitHub Pages não executa ess
 6. Abre o principal e confirma o resultado.
 7. Usa a central para comparar com versões anteriores.
 8. Mantém a documentação atualizada quando mudares a estrutura ou as configurações.
+
+## 15. Histórico automático da BANCADA.az
+
+O primeiro commit foi publicado em 09/10/2026. Abre a central, escolhe BANCADA.az e consulta os commits. A página lê o repositório público diretamente no GitHub, sem senha/token/API paga; futuros commits aparecem ao abrir/atualizar a página. Usa **Atualizar histórico** se a página já estiver aberta, pesquisa pelo nome/código e **Carregar commits anteriores** para páginas adicionais (100 por consulta). Se houver falha ou limite temporário da API, o link **Ver histórico no GitHub** continua disponível.
+
+**Ver código desta versão** abre os ficheiros daquele commit; **Ver alterações** abre o diff. A atual BANCADA usa Node 24 e SQLite e não funciona apenas com GitHub Pages. A publicação da loja e das pré-visualizações interativas exige uma hospedagem com esse servidor e dados separados por versão; ainda não está configurada. A consulta de commits não altera o projeto ou a base de dados.
